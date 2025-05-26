@@ -3,12 +3,14 @@ import React, { useEffect } from 'react';
 const About = () => {
  
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-15 border bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
+           mb-4 sora-family">About</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto
+          inter-family">
             Passionate developer with a mission to create exceptional digital experiences
             that solve real-world problems and drive business growth.
           </p>
@@ -18,19 +20,20 @@ const About = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900">Crafting Code, Building Dreams</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-900
+              sora-family">Crafting Code, Building Dreams</h3>
+              <p className="text-gray-600 leading-relaxed inter-family">
                 With over 3 years of experience in full-stack development, I specialize in creating 
                 scalable web applications using modern technologies like React, Node.js, and cloud platforms.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed inter-family">
                 My approach combines technical expertise with creative problem-solving to deliver 
                 solutions that not only work flawlessly but also provide exceptional user experiences.
               </p>
             </div>
 
             {/* Skills Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 inter-family">
               {[
                 { title: 'Frontend', colorClass: 'text-blue-600', skills: 'React, Vue.js, TypeScript' },
                 { title: 'Backend', colorClass: 'text-green-600', skills: 'Node.js, Python, PostgreSQL' },
@@ -50,10 +53,10 @@ const About = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-4">
+            <div className="pt-4  ">
               <button
             
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 Download Resume
               </button>
@@ -100,9 +103,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-     
-      
     </section>
   );
 };

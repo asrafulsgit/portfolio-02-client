@@ -6,8 +6,9 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Skills</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
+           mb-4 sora-family">Skills</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
             Comprehensive technical expertise across modern web technologies, frameworks, and development tools for building scalable applications.
           </p>
         </div>

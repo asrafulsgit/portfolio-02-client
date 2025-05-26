@@ -12,67 +12,16 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  useEffect(() => {
-    const handleLinkClick = (e) => {
-      const targetId = e.target.getAttribute('href');
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const offsetTop = target.offsetTop - 64;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth',
-        });
-        closeMenu();
-      }
-    };
-
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    navLinks.forEach((link) => {
-      link.addEventListener('click', handleLinkClick);
-    });
-
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPos = window.scrollY + 100;
-
-      sections.forEach((section) => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        const id = section.getAttribute('id');
-
-        const navLink = document.querySelector(`nav a[href="#${id}"]`);
-        if (navLink) {
-          if (scrollPos >= top && scrollPos < top + height) {
-            navLinks.forEach((link) => {
-              link.classList.remove('text-blue-600');
-              link.classList.add('text-gray-700');
-            });
-            navLink.classList.remove('text-gray-700');
-            navLink.classList.add('text-blue-600');
-          }
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      navLinks.forEach((link) => {
-        link.removeEventListener('click', handleLinkClick);
-      });
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <nav id="header" className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <nav id="header" className="fixed 
+    top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b
+     border-gray-200 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-              Portfolio
-            </a>
+            <a href="#hero" class="text-xl font-bold text-gray-900">
+            DevCraft
+          </a>
           </div>
 
           <div className="hidden md:block">

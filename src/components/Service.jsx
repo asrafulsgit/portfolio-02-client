@@ -141,7 +141,8 @@ function ServiceCard({ service, index }) {
     <div
       ref={cardRef}
       className={`group bg-gray-50 p-8 rounded-xl border border-gray-200 
-        transition-all duration-300 transform  hover:shadow-lg ${service.borderHover}`}
+        transition-all duration-300 transform  hover:shadow-lg 
+        ${service.borderHover} `}
       style={{ transform: "translateY(0) scale(1)" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
@@ -155,13 +156,13 @@ function ServiceCard({ service, index }) {
       >
         <div className={`${service.iconColor} w-8 h-8 rounded`}></div>
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-      <p className="text-gray-600 mb-6">{service.description}</p>
+      <h3 className="text-[20px] font-[700] text-gray-900 mb-4">{service.title}</h3>
+      <p className="text-gray-600 mb-6 inter-family">{service.description}</p>
       <ul className="space-y-2 text-sm text-gray-600">
         {service.points.map((point, i) => (
-          <li key={i} className="flex items-center">
+          <li key={i} className="flex items-center inter-family">
             <span
-              className={`${service.iconColor} w-2 h-2 rounded-full mr-3 inline-block`}
+              className={`${service.iconColor}  w-2 h-2 rounded-full mr-3 inline-block`}
             ></span>
             {point}
           </li>
@@ -212,12 +213,14 @@ function ProcessStep({ step, index }) {
     >
       <div
         ref={circleRef}
-        className={`${step.colorBg} text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold animate-bounce w-16 h-16`}
+        className={`${step.colorBg} text-white rounded-full 
+        flex items-center justify-center mx-auto mb-4 text-xl 
+        font-bold animate-bounce w-16 h-16 inter-family`}
       >
         {step.number}
       </div>
-      <h4 className="font-bold text-gray-900 mb-2">{step.title}</h4>
-      <p className="text-gray-600 text-sm">{step.description}</p>
+      <h4 className="font-bold text-gray-900 mb-2 sora-family">{step.title}</h4>
+      <p className="text-gray-600 text-sm inter-family">{step.description}</p>
     </div>
   );
 }
@@ -232,14 +235,15 @@ const Services = () => {
   }
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-15 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
+           mb-4 sora-family">
             Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
             Comprehensive development solutions tailored to your business needs.
             From concept to deployment, I deliver excellence at every step.
           </p>
@@ -255,10 +259,10 @@ const Services = () => {
         {/* Process Section */}
         <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 sora-family">
               My Development Process
             </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto inter-family">
               A proven methodology that ensures quality delivery and client
               satisfaction from initial consultation to final deployment.
             </p>
@@ -272,10 +276,10 @@ const Services = () => {
         </div>
 
         <div class="text-center mt-16">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 sora-family">
             Ready to Start Your Project?
           </h3>
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p class="text-gray-600 mb-8 max-w-2xl mx-auto inter-family">
             Let's discuss your requirements and create something amazing
             together. Get a free consultation and project estimate.
           </p>

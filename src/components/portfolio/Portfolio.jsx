@@ -62,8 +62,8 @@ const projects = [
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Portfolio</h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sora-family">Portfolio</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
           Showcasing innovative solutions and successful projects that demonstrate
           technical expertise and creative problem-solving.
         </p>
@@ -74,7 +74,9 @@ const projects = [
         {['all', 'web', 'mobile', 'ecommerce'].map((type, index) => (
           <button
             key={index}
-            className={`filter-btn ${type === 'all' ? 'active bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'} px-6 py-2 rounded-full font-medium transition-all duration-300`}
+            className={`filter-btn ${type === 'all' ? 
+              'active bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'}
+               px-6 py-2 rounded-full font-medium transition-all duration-300 `}
             data-filter={type}
           >
             {type === 'all' ? 'All Projects' :
@@ -117,9 +119,10 @@ const projects = [
 
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-xl font-bold text-gray-900 mb-2
+              ">{project.title}</h3>
+              <p className="text-gray-600 mb-4 inter-family">{project.description}</p>
+              <div className="flex flex-wrap gap-2 inter-family">
                 {project.tags.map((tag, j) => (
                   <span key={j} className={`${tag.bg} ${tag.text} px-3 py-1 rounded-full text-sm`}>
                     {tag.label}
