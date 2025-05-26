@@ -1,109 +1,97 @@
 import React from "react";
 
+const testimonials = [
+  {
+    initials: "JS",
+    name: "John Smith",
+    role: "CEO, TechStart",
+    bgColor: "bg-blue-500",
+    quote:
+      "Exceptional work on our e-commerce platform. The attention to detail and technical expertise exceeded our expectations. Delivered on time and within budget.",
+  },
+  {
+    initials: "MJ",
+    name: "Maria Johnson",
+    role: "Product Manager, InnovateCorp",
+    bgColor: "bg-green-500",
+    quote:
+      "Outstanding full-stack development skills. Built our entire web application from scratch with modern technologies. Highly recommend for complex projects.",
+  },
+  {
+    initials: "DW",
+    name: "David Wilson",
+    role: "Founder, StartupLab",
+    bgColor: "bg-purple-500",
+    quote:
+      "Incredible problem-solving abilities and clean code architecture. Transformed our MVP into a scalable production application. A true professional.",
+  },
+  {
+    initials: "SB",
+    name: "Sarah Brown",
+    role: "CTO, DigitalFlow",
+    bgColor: "bg-red-500",
+    quote:
+      "Excellent communication and project management. Delivered a complex dashboard application with real-time features. Will definitely work together again.",
+  },
+  {
+    initials: "RT",
+    name: "Robert Taylor",
+    role: "Director, CloudSolutions",
+    bgColor: "bg-indigo-500",
+    quote:
+      "Top-notch development skills with modern frameworks. Built our mobile app and web platform seamlessly. Great attention to user experience and performance.",
+  },
+  {
+    initials: "LG",
+    name: "Lisa Garcia",
+    role: "VP Engineering, DataTech",
+    bgColor: "bg-orange-500",
+    quote:
+      "Impressive technical depth and reliability. Handled our backend infrastructure and API development flawlessly. A valuable addition to any development team.",
+  },
+];
+
+
+
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Testimonials
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            What clients and colleagues say about working with me
-          </p>
-        </div>
+    <section id="testimonials" className="py-20 bg-gray-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Testimonials</h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          What clients say about working with me and the results we've achieved together on their projects.
+        </p>
+      </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {/* Testimonial 1 */}
-          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                S
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">Sarah Johnson</h4>
-                <p className="text-sm text-gray-600">CEO, TechStart</p>
-              </div>
-            </div>
-            <div className="flex mb-4">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-5 h-5 text-yellow-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+      <div className="w-full h-96 relative overflow-hidden">
+        <div className="flex animate-scroll hover:[animation-play-state:paused] w-max">
+          {testimonials.concat(testimonials.slice(0, 3)).map((t, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 w-80 mx-4 bg-white rounded-xl p-6 shadow-lg border border-gray-200"
+              style={{
+                transform: "translateY(0px) scale(1)",
+                boxShadow:
+                  "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
+              }}
+            >
+              <div className="flex items-center mb-4">
+                <div
+                  className={`w-12 h-12 ${t.bgColor} rounded-full flex items-center justify-center text-white font-bold mr-4`}
                 >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <p className="text-gray-600 italic">
-              "Alex delivered an exceptional e-commerce platform that exceeded
-              our expectations. Professional, reliable, and incredibly talented."
-            </p>
-          </div>
-
-          {/* Testimonial 2 */}
-          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                M
+                  {t.initials}
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900">{t.name}</h4>
+                  <p className="text-gray-600 text-sm">{t.role}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-gray-900">Michael Chen</h4>
-                <p className="text-sm text-gray-600">CTO, InnovateLab</p>
+              <blockquote className="text-gray-700 leading-relaxed">"{t.quote}"</blockquote>
+              <div className="flex text-yellow-400 mt-4">
+                <span>★★★★★</span>
               </div>
             </div>
-            <div className="flex mb-4">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-5 h-5 text-yellow-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <p className="text-gray-600 italic">
-              "Outstanding technical skills and great communication. Alex
-              transformed our complex requirements into elegant solutions."
-            </p>
-          </div>
-
-          {/* Testimonial 3 */}
-          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                E
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">Emily Rodriguez</h4>
-                <p className="text-sm text-gray-600">Product Manager, DesignCo</p>
-              </div>
-            </div>
-            <div className="flex mb-4">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-5 h-5 text-yellow-400"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <p className="text-gray-600 italic">
-              "Emily's leadership and vision drove the project to success,
-              delivering a user-friendly and innovative product."
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -111,3 +99,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
