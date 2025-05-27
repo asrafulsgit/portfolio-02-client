@@ -1,118 +1,262 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
+import Tools from './Tools';
+import Learning from './Learning';
+import Header from './Header';
 
 const Skills = () => {
+  const skillsRef = useRef(null);
+  const frontEnd =[
+      {
+        name: "React",
+        percentage: 95,
+        color: "bg-blue-600"
+      },
+      {
+        name: "JavaScript",
+        percentage: 90,
+        color: "bg-yellow-500"
+      },
+      {
+        name: "TypeScript",
+        percentage: 85,
+        color: "bg-blue-500"
+      },
+      {
+        name: "Vue.js",
+        percentage: 80,
+        color: "bg-green-500"
+      },
+      {
+        name: "CSS/Tailwind",
+        percentage: 92,
+        color: "bg-purple-500"
+      }
+    
+ ]
+  const backend = [
+      {
+        name: "Node.js",
+        percentage: 88,
+        color: "bg-green-600"
+      },
+      {
+        name: "Python",
+        percentage: 82,
+        color: "bg-blue-500"
+      },
+      {
+        name: "PostgreSQL",
+        percentage: 85,
+        color: "bg-indigo-600"
+      },
+      {
+        name: "MongoDB",
+        percentage: 78,
+        color: "bg-green-500"
+      },
+      {
+        name: "Express.js",
+        percentage: 90,
+        color: "bg-gray-700"
+      }
+    
+
+];
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const skillBars = entry.target.querySelectorAll('[data-width]');
+          
+          skillBars.forEach((bar, index) => {
+            setTimeout(() => {
+              const width = bar.getAttribute('data-width');
+              bar.style.width = width;
+            }, index * 200);
+          });
+          
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const toolObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const percentageElements = entry.target.querySelectorAll('.text-sm.text-gray-600');
+          
+          percentageElements.forEach(element => {
+            const percentage = parseInt(element.textContent);
+            element.textContent = '0%';
+            
+            setTimeout(() => {
+              animateCounter(element, percentage);
+            }, 500);
+          });
+          
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const animateCounter = (element, target, duration = 2000) => {
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + '%';
+      }, 16);
+    };
+
+    // Observe skill sections
+    const skillSections = document.querySelectorAll('#skills .space-y-8');
+    skillSections.forEach(section => {
+      skillObserver.observe(section);
+      counterObserver.observe(section);
+    });
+
+    // Tool cards animation
+    const toolCards = document.querySelectorAll('.tool-card');
+    toolCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+      toolObserver.observe(card);
+    });
+
+    // Certification cards animation
+    const certCards = document.querySelectorAll('#skills .bg-white.p-6');
+    certCards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.2}s`;
+      toolObserver.observe(card);
+    });
+
+    // Skill bar hover effects
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        const bar = this.querySelector('[data-width]');
+        bar.classList.add('animate-pulse');
+      });
+
+      item.addEventListener('mouseleave', function() {
+        const bar = this.querySelector('[data-width]');
+        bar.classList.remove('animate-pulse');
+      });
+    });
+
+    // Tool card hover effects with rotation
+    toolCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px) rotate(2deg)';
+      });
+
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) rotate(0deg)';
+      });
+    });
+
+    // Add floating animation to certification icons
+    const certIcons = document.querySelectorAll('#skills .w-16.h-16');
+    certIcons.forEach((icon, index) => {
+      icon.style.animation = `float 3s ease-in-out infinite ${index * 0.5}s`;
+    });
+
+    return () => {
+      skillObserver.disconnect();
+      toolObserver.disconnect();
+      counterObserver.disconnect();
+      skillItems.forEach(item => {
+        item.removeEventListener('mouseenter', () => {});
+        item.removeEventListener('mouseleave', () => {});
+      });
+      toolCards.forEach(card => {
+        card.removeEventListener('mouseenter', () => {});
+        card.removeEventListener('mouseleave', () => {});
+      });
+    };
+  }, []);
+
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-15 bg-white" ref={skillsRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
-           mb-4 sora-family">Skills</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
-            Comprehensive technical expertise across modern web technologies, frameworks, and development tools for building scalable applications.
-          </p>
-        </div>
+        <Header />
 
         {/* Skills Categories */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Frontend Skills */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Frontend Development</h3>
-            <div className="space-y-6">
-              {[
-                { name: 'React', percent: 95, color: 'bg-blue-600' },
-                { name: 'JavaScript', percent: 90, color: 'bg-yellow-500' },
-                { name: 'TypeScript', percent: 85, color: 'bg-blue-500' },
-                { name: 'Vue.js', percent: 80, color: 'bg-green-500' },
-                { name: 'CSS/Tailwind', percent: 92, color: 'bg-purple-500' }
-              ].map(skill => (
-                <div key={skill.name} className="skill-item">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold text-gray-800">{skill.name}</span>
-                    <span className="text-sm text-gray-600">{skill.percent}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div className={`${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`} style={{ width: `${skill.percent}%` }}></div>
-                  </div>
+              <div className="space-y-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 sora-family">Frontend Development</h3>
+          {frontEnd.map((skill,index)=>{
+            return(
+            <div className="space-y-6 inter-family" key={index}>
+              <div className="skill-item">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-lg font-semibold text-gray-800 ">{skill.name}</span>
+                  <span className="text-sm text-gray-600">{skill.percentage}</span>
                 </div>
-              ))}
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className={`${skill.color} h-3 rounded-full transition-all duration-1000 
+                  ease-out`} style={{ width: '0%' }} data-width={`${skill.percentage}%`}></div>
+                </div>
+              </div>
             </div>
+            )
+          }) }
           </div>
 
           {/* Backend Skills */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Backend Development</h3>
-            <div className="space-y-6">
-              {[
-                { name: 'Node.js', percent: 88, color: 'bg-green-600' },
-                { name: 'Python', percent: 82, color: 'bg-blue-500' },
-                { name: 'PostgreSQL', percent: 85, color: 'bg-indigo-600' },
-                { name: 'MongoDB', percent: 78, color: 'bg-green-500' },
-                { name: 'Express.js', percent: 90, color: 'bg-gray-700' }
-              ].map(skill => (
-                <div key={skill.name} className="skill-item">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold text-gray-800">{skill.name}</span>
-                    <span className="text-sm text-gray-600">{skill.percent}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div className={`${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`} style={{ width: `${skill.percent}%` }}></div>
-                  </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 sora-family">Backend Development</h3>
+            {backend.map((skill,index)=>{
+            return(
+            <div className="space-y-6 inter-family" key={index}>
+              <div className="skill-item">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-lg font-semibold text-gray-800">{skill.name}</span>
+                  <span className="text-sm text-gray-600">{skill.percentage}</span>
                 </div>
-              ))}
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className={`${skill.color} h-3 rounded-full transition-all duration-1000 
+                  ease-out`} style={{ width: '0%' }} data-width={`${skill.percentage}%`}></div>
+                </div>
+              </div>
             </div>
+            )
+          }) }
+            
           </div>
         </div>
 
         {/* Tools & Technologies Grid */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">Tools & Technologies</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[
-              { name: 'AWS', color: 'orange' },
-              { name: 'Docker', color: 'blue' },
-              { name: 'Git', color: 'red' },
-              { name: 'Figma', color: 'purple' },
-              { name: 'Webpack', color: 'blue' },
-              { name: 'Jest', color: 'green' },
-            ].map((tool, idx) => (
-              <div key={tool.name} className={`tool-card group bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-${tool.color}-300 hover:shadow-lg transition-all duration-300 text-center animate-fade-in-up`} style={{ animationDelay: `${idx * 0.1}s` }}>
-                <div className={`w-12 h-12 bg-${tool.color}-100 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-${tool.color}-200 transition-colors duration-300`}>
-                  <div className={`w-6 h-6 bg-${tool.color}-600 rounded`}></div>
-                </div>
-                <h4 className="font-semibold text-gray-800">{tool.name}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Tools />
 
         {/* Certifications & Learning */}
-        <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Continuous Learning</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Staying current with the latest technologies and best practices through ongoing education and professional development.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: 'AWS Certified', desc: 'Solutions Architect Associate', color: 'blue', delay: '0s' },
-              { title: 'Google Cloud Training', desc: 'Foundational Knowledge', color: 'green', delay: '0.2s' },
-              { title: 'OpenAI Developer', desc: 'AI Integration Specialist', color: 'indigo', delay: '0.4s' },
-            ].map((cert, i) => (
-              <div key={cert.title} className="bg-white p-6 rounded-xl border border-gray-200 text-center animate-fade-in-up" style={{ animationDelay: cert.delay }}>
-                <div className={`w-16 h-16 bg-${cert.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <div className={`w-8 h-8 bg-${cert.color}-600 rounded-full`}></div>
-                </div>
-                <h4 className="font-bold text-gray-900 mb-2">{cert.title}</h4>
-                <p className="text-gray-600 text-sm">{cert.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Learning />
       </div>
+
+    
     </section>
   );
 };
 
-export default Skills;
+export default Skills ;

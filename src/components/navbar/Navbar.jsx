@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link, Element } from 'react-scroll';
+import './navbar.css'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,28 +14,60 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const navItems =[
+    {
+      name : 'Home',
+      section : 'hero'
+  },
+    {
+      name : 'About',
+      section : 'about'
+  },
+    {
+      name : 'Service',
+      section : 'service'
+  },
+    {
+      name : 'Projects',
+      section : 'projects'
+  },
+    {
+      name : 'Skills',
+      section : 'skills'
+  },
+    {
+      name : 'Contact',
+      section : 'contact'
+  }
+]
+  const [activeSection, setActiveSection] = useState('hero');   
+ 
   return (
     <nav id="header" className="fixed 
     top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b
-     border-gray-200 ">
+     border-gray-200 navbar-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a href="#hero" class="text-xl font-bold text-gray-900">
-            DevCraft
-          </a>
+            <Link to='hero' duration={0}   className="text-2xl font-bold
+             text-gray-900 cursor-default sora-family">
+            AS<span className='text-blue-600 text-sm'>Dev</span>
+          </Link>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block inter-family">
             <ul className="flex space-x-8">
-              {['home', 'about', 'projects', 'skills', 'testimonials', 'contact'].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item}`}
-                    className="text-gray-700 hover:text-blue-600 transition-colors font-medium capitalize"
+              {navItems.map((item,index) => (
+                <li key={index}>
+                  <Link to={item.section} smooth={true} duration={0}
+                   spy={true} activeClass="active"
+                   onSetActive={() => setActiveSection(item.section)}
+                    className={`text-gray-700 hover:text-blue-600 transition-colors font-medium capitalize cursor-pointer ${
+                      activeSection === item.section ? 'active' : ''
+                    }`}
                   >
-                    {item}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

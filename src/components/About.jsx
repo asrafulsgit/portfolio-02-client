@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 
 const About = () => {
- 
+  const skillsData = [
+                { title: 'Frontend', colorClass: 'text-blue-600', skills: 'React, JavaScript,  TypeScript' },
+                { title: 'Backend', colorClass: 'text-green-600', skills: 'Node.js, MongoDB, PostgreSQL' },
+                { title: 'Tools', colorClass: 'text-orange-600', skills: 'Git, AI, VS' },
+              ]
   return (
-    <section id="about" className="py-15 border bg-gray-50">
+    <section id="about" className="pt-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -34,29 +38,29 @@ const About = () => {
 
             {/* Skills Grid */}
             <div className="grid grid-cols-2 gap-6 inter-family">
-              {[
-                { title: 'Frontend', colorClass: 'text-blue-600', skills: 'React, Vue.js, TypeScript' },
-                { title: 'Backend', colorClass: 'text-green-600', skills: 'Node.js, Python, PostgreSQL' },
-                { title: 'Cloud', colorClass: 'text-purple-600', skills: 'AWS, Docker, Kubernetes' },
-                { title: 'Tools', colorClass: 'text-orange-600', skills: 'Git, CI/CD, Agile' },
-              ].map(({ title, colorClass, skills }, i) => (
-                <div
+              {skillsData.map((skill, i) =>{ 
+                const { title, colorClass, skills } = skill;
+                return(<div
                   key={title}
                   
-                  className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300 animate-fade-in"
+                  className="bg-white p-6 rounded-lg border 
+                  border-gray-200 hover:shadow-md transition-shadow 
+                  duration-300 animate-fade-in"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   <div className={`${colorClass} text-2xl font-bold mb-2`}>{title}</div>
                   <p className="text-gray-600 text-sm">{skills}</p>
-                </div>
-              ))}
+                </div>)
+              })}
             </div>
 
             {/* CTA Button */}
             <div className="pt-4  ">
               <button
             
-                className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 
+                py-3 rounded-lg font-semibold transition-all duration-300 
+                transform"
               >
                 Download Resume
               </button>

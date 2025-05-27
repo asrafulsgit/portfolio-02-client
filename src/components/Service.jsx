@@ -42,45 +42,7 @@ const servicesData = [
       "Project Management",
       "Technical Consulting",
     ],
-  },
-  {
-    title: "Cloud & DevOps",
-    description:
-      "AWS deployment, containerization with Docker, and CI/CD pipeline setup. Scalable cloud infrastructure solutions.",
-    colorBg: "bg-orange-100",
-    colorHoverBg: "group-hover:bg-orange-200",
-    iconColor: "bg-orange-600",
-    borderHover: "hover:border-orange-300",
-    points: ["AWS Deployment", "Docker Containerization", "CI/CD Pipelines"],
-  },
-  {
-    title: "E-commerce Development",
-    description:
-      "Custom online stores with payment integration, inventory management, and optimized checkout experiences.",
-    colorBg: "bg-red-100",
-    colorHoverBg: "group-hover:bg-red-200",
-    iconColor: "bg-red-600",
-    borderHover: "hover:border-red-300",
-    points: [
-      "Payment Integration",
-      "Inventory Management",
-      "Shopping Cart Systems",
-    ],
-  },
-  {
-    title: "Mobile Development",
-    description:
-      "Cross-platform mobile applications using React Native and Progressive Web Apps. Native performance with web technologies.",
-    colorBg: "bg-indigo-100",
-    colorHoverBg: "group-hover:bg-indigo-200",
-    iconColor: "bg-indigo-600",
-    borderHover: "hover:border-indigo-300",
-    points: [
-      "React Native Apps",
-      "Progressive Web Apps",
-      "Cross-platform Solutions",
-    ],
-  },
+  }
 ];
 
 const processSteps = [
@@ -110,7 +72,82 @@ const processSteps = [
   },
 ];
 
-function ServiceCard({ service, index }) {
+
+
+const Services = () => {
+
+  return (
+    <section id="services" className="py-15 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
+           mb-4 sora-family">
+            Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
+            Comprehensive development solutions tailored to your business needs.
+            From concept to deployment, I deliver excellence at every step.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {servicesData.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
+        </div>
+
+        {/* Process Section */}
+        <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 sora-family">
+              My Development Process
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto inter-family">
+              A proven methodology that ensures quality delivery and client
+              satisfaction from initial consultation to final deployment.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <ProcessStep key={index} step={step} index={index} />
+            ))}
+          </div>
+        </div>
+        {/* contact for project */}
+        <div className="text-center mt-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 sora-family">
+            Ready to Start Your Project?
+          </h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto inter-family">
+            Let's discuss your requirements and create something amazing
+            together. Get a free consultation and project estimate.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center inter-family">
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white
+           px-8 py-3 rounded-lg font-semibold transition-all 
+           duration-300 transform cursor-pointer"
+            >
+              Get Free Quote
+            </button>
+            <button
+              className="border border-gray-300 hover:border-gray-400
+           text-gray-700 hover:text-gray-900 px-8 py-3 rounded-lg font-semibold
+            transition-all duration-300 hover:bg-gray-50 cursor-pointer"
+            >
+              View Portfolio
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const  ServiceCard =({ service, index })=> {
   const cardRef = useRef();
 
   useEffect(() => {
@@ -152,11 +189,12 @@ function ServiceCard({ service, index }) {
       }}
     >
       <div
-        className={`w-16 h-16 ${service.colorBg} rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 ${service.colorHoverBg}`}
+        className={`w-16 h-16 ${service.colorBg} rounded-lg flex items-center 
+        justify-center mb-6 transition-colors duration-300 ${service.colorHoverBg}`}
       >
         <div className={`${service.iconColor} w-8 h-8 rounded`}></div>
       </div>
-      <h3 className="text-[20px] font-[700] text-gray-900 mb-4">{service.title}</h3>
+      <h3 className="text-xl font-[700] text-gray-900 mb-4 sora-family">{service.title}</h3>
       <p className="text-gray-600 mb-6 inter-family">{service.description}</p>
       <ul className="space-y-2 text-sm text-gray-600">
         {service.points.map((point, i) => (
@@ -172,7 +210,7 @@ function ServiceCard({ service, index }) {
   );
 }
 
-function ProcessStep({ step, index }) {
+const ProcessStep=({ step, index })=> {
   const stepRef = useRef();
   const circleRef = useRef();
 
@@ -224,83 +262,4 @@ function ProcessStep({ step, index }) {
     </div>
   );
 }
-
-const Services = () => {
-  // Scroll handlers for buttons
-  function scrollToSection(id) {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
-  return (
-    <section id="services" className="py-15 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
-           mb-4 sora-family">
-            Services
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto inter-family">
-            Comprehensive development solutions tailored to your business needs.
-            From concept to deployment, I deliver excellence at every step.
-          </p>
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {servicesData.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
-        </div>
-
-        {/* Process Section */}
-        <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 sora-family">
-              My Development Process
-            </h3>
-            <p className="text-gray-600 max-w-2xl mx-auto inter-family">
-              A proven methodology that ensures quality delivery and client
-              satisfaction from initial consultation to final deployment.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <ProcessStep key={index} step={step} index={index} />
-            ))}
-          </div>
-        </div>
-
-        <div class="text-center mt-16">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4 sora-family">
-            Ready to Start Your Project?
-          </h3>
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto inter-family">
-            Let's discuss your requirements and create something amazing
-            together. Get a free consultation and project estimate.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              class="bg-blue-600 hover:bg-blue-700 text-white
-           px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              Get Free Quote
-            </button>
-            <button
-              class="border border-gray-300 hover:border-gray-400
-           text-gray-700 hover:text-gray-900 px-8 py-3 rounded-lg font-semibold
-            transition-all duration-300 hover:bg-gray-50"
-            >
-              View Portfolio
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 export default Services;

@@ -1,27 +1,30 @@
 import React from 'react';
-
+import './hero.css'
 const Hero = () => {
   return (
     <section
-      id="hero"
+      id="hero-section"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-fade-in-up" >
           {/* Content Column */}
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Hi, I'm <span className="text-blue-600">Alex Johnson</span>
-            </h1>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-700 mb-6">
-              Full Stack Developer &amp; UI/UX Designer
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-              I create beautiful, functional digital experiences that solve real problems and delight users.
-            </p>
+
+            <div className='animate-fade-in-up'>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 inter-family">
+                  Hi, I'm <span className="text-blue-600">Alex Johnson</span>
+                </h1>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-700 mb-6 inter-family">
+                  Full Stack Developer
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl inter-family">
+                  I create beautiful, functional digital experiences that solve real problems and delight users.
+                </p>
+            </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up">
               <a
                 href="#projects"
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
@@ -37,18 +40,18 @@ const Hero = () => {
             </div>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-8 justify-center lg:justify-start mt-12">
+            <div className="flex flex-wrap gap-8 justify-center lg:justify-start mt-12 inter-family">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">50+</div>
+                <div className="text-2xl font-bold text-gray-900">10+</div>
                 <div className="text-sm text-gray-600">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">3+</div>
+                <div className="text-2xl font-bold text-gray-900">2.5+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">25+</div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
+                <div className="text-2xl font-bold text-gray-900">24h</div>
+                <div className="text-sm text-gray-600">Response Time</div>
               </div>
             </div>
           </div>
@@ -65,16 +68,21 @@ const Hero = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-4 animate-bounce">
+              <div className="absolute -top-4 -right-4 bg-white 
+              rounded-lg shadow-lg p-4 inter-family"
+              style={{
+                animation: "hero-badge 3s ease-in-out 0s infinite normal none running",
+              }}
+              >
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   <span className="text-sm font-medium">Available for work</span>
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 -left-4 bg-blue-600 text-white rounded-lg shadow-lg p-4">
+              <div className="absolute -bottom-4 inter-family -left-8 bg-blue-600 text-white rounded-lg shadow-lg p-4">
                 <div className="text-center">
-                  <div className="text-lg font-bold">React</div>
+                  <div className="text-lg font-bold">JavaScript</div>
                   <div className="text-xs">Expert</div>
                 </div>
               </div>
@@ -83,16 +91,14 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <a
-            href="#about"
-            className="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <span className="text-sm mb-2">Scroll Down</span>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
+        <div className="absolute bottom-8 left-1/2"
+        style={{
+          animation: "float 3s ease-in-out 0s infinite normal none running",
+        }}
+        >
+        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+        </div>
         </div>
       </div>
     </section>
