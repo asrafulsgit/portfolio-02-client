@@ -1,6 +1,9 @@
 import React from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const Tools = () => {
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true })
+
     const toolsData = [
   {
     name: "AWS",
@@ -48,8 +51,7 @@ const Tools = () => {
 ];
   return (
     <>
-
-        <div className="mb-6 sora-family">
+        <div ref={ref} className={`mb-6 sora-family ${inView && 'animate-fade-in-up'}`}>
           <h3 className="text-2xl font-bold text-gray-900 text-center 
           mb-12 ">Tools &amp; Technologies</h3>
           

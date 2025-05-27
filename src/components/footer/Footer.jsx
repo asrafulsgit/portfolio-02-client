@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
+import {Link as SLink } from "react-scroll";
 import './footer.css'
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -41,16 +42,7 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const handleLinkClick = (e, targetId) => {
-    e.preventDefault();
-    const target = document.querySelector(targetId);
-    const headerHeight = document.querySelector("header")?.offsetHeight || 0;
-    if (target) {
-      window.scrollTo({ top: target.offsetTop - headerHeight, behavior: "smooth" });
-    }
-  };
+  
   const contactInfo =[
     {
                 color: "bg-blue-600",
@@ -68,7 +60,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 animate-fade-in-up">
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 sora-family">DevCraft</h3>
+            <h3 className="text-2xl font-bold mb-4 sora-family">
+                AS<span className='text-blue-600 text-sm'>Dev</span>
+            </h3>
             <p className="text-gray-300 leading-relaxed max-w-md inter-family">
               Full-stack developer specializing in modern web applications.
               Transforming ideas into scalable digital solutions with cutting-edge technologies.
@@ -98,16 +92,15 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-6 sora-family">Quick Links</h4>
             <nav className="space-y-3">
-              {["Home", "About", "Services", "Portfolio", "Contact"].map((label) => (
-                <a
+              {["Home", "About", "Services", "Portfolio","Skills", "Contact"].map((label) => (
+                <SLink
                   key={label}
-                  href={`#${label.toLowerCase()}`}
-                  onClick={(e) => handleLinkClick(e, `#${label.toLowerCase()}`)}
+                  to={label.toLowerCase()}
                   className="block text-gray-300 hover:text-white 
-                  transition-colors font-[300] duration-300 inter-family"
+                  transition-colors font-[300] duration-300 cursor-pointer inter-family"
                 >
                   {label}
-                </a>
+                </SLink>
               ))}
             </nav>
           </div>
@@ -206,9 +199,9 @@ const Footer = () => {
           </div>
         </div>
 
+        <SLink to='home' duration={0} activeClass={'active'}>
         <button
-          id="back-to-top"
-          onClick={scrollToTop}
+           
           className={`fixed bottom-8 right-8 w-12 h-12 bg-blue-600
            hover:bg-blue-700 text-white rounded-full 
            ${isScroll ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'}
@@ -216,7 +209,7 @@ const Footer = () => {
            hover:scale-110 z-50`}
         >
           <span className="text-xl">↑</span>
-        </button>
+        </button></SLink>
       </div>
     </footer>
   );

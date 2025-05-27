@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
-
+import { useInView } from "react-intersection-observer";
+import './about.css'
+import Tools from './Tools';
+import Image from './Image';
 const About = () => {
-  const skillsData = [
-                { title: 'Frontend', colorClass: 'text-blue-600', skills: 'React, JavaScript,  TypeScript' },
-                { title: 'Backend', colorClass: 'text-green-600', skills: 'Node.js, MongoDB, PostgreSQL' },
-                { title: 'Tools', colorClass: 'text-orange-600', skills: 'Git, AI, VS' },
-              ]
+  const { ref, inView, entry } = useInView({ triggerOnce: true });
+ 
   return (
-    <section id="about" className="pt-20 bg-gray-50">
+    <section  id="about-section" className="pt-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div ref={ref} className={`text-center mb-8 sm:mb-16 ${inView && 'animate-fade-in-up'}`}>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900
            mb-4 sora-family">About</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto
-          inter-family">
+          <p className={`text-[18px] sm:text-xl text-gray-600 max-w-3xl mx-auto
+          inter-family`}>
             Passionate developer with a mission to create exceptional digital experiences
             that solve real-world problems and drive business growth.
           </p>
@@ -22,89 +22,10 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900
-              sora-family">Crafting Code, Building Dreams</h3>
-              <p className="text-gray-600 leading-relaxed inter-family">
-                With over 3 years of experience in full-stack development, I specialize in creating 
-                scalable web applications using modern technologies like React, Node.js, and cloud platforms.
-              </p>
-              <p className="text-gray-600 leading-relaxed inter-family">
-                My approach combines technical expertise with creative problem-solving to deliver 
-                solutions that not only work flawlessly but also provide exceptional user experiences.
-              </p>
-            </div>
-
-            {/* Skills Grid */}
-            <div className="grid grid-cols-2 gap-6 inter-family">
-              {skillsData.map((skill, i) =>{ 
-                const { title, colorClass, skills } = skill;
-                return(<div
-                  key={title}
-                  
-                  className="bg-white p-6 rounded-lg border 
-                  border-gray-200 hover:shadow-md transition-shadow 
-                  duration-300 animate-fade-in"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  <div className={`${colorClass} text-2xl font-bold mb-2`}>{title}</div>
-                  <p className="text-gray-600 text-sm">{skills}</p>
-                </div>)
-              })}
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4  ">
-              <button
-            
-                className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 
-                py-3 rounded-lg font-semibold transition-all duration-300 
-                transform"
-              >
-                Download Resume
-              </button>
-            </div>
-          </div>
+          <Tools />
 
           {/* Right Content - Images */}
-          <div className="relative">
-            {/* Main Image */}
-            <div className="relative z-10">
-              <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8cHJvZmVzc2lvbmFsJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRyYWl0JTI1MjBjb25maWRlbnQlMjUyMG1vZGVybnxlbnwxfHx8fDE3NDgyMzM3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Professional developer portrait confident modern"
-                className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Floating Images */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 rounded-xl overflow-hidden shadow-lg border-4 border-white transform rotate-12 hover:rotate-0 transition-transform duration-300">
-              <img
- 
-                src="https://images.unsplash.com/photo-1484981138541-3d074aa97716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRyYWl0JTI1MjBjb25maWRlbnQlMjUyMG1vZGVybnxlbnwxfHx8fDE3NDgyMzM3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Developer workspace with favorite mug"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                style={{ transform: 'translateY(90.1px) rotate(12deg)' }}
-              />
-            </div>
-
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-xl overflow-hidden shadow-lg border-4 border-white transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-              <img
- 
-                src="https://images.unsplash.com/photo-1425421669292-0c3da3b8f529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8cHJvZmVzc2lvbmFsJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRyYWl0JTI1MjBjb25maWRlbnQlMjUyMG1vZGVybnxlbnwxfHx8fDE3NDgyMzM3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Elegant professional developer"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                style={{ transform: 'translateY(180.2px) rotate(-6deg)' }}
-              />
-            </div>
-
-            {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100 rounded-full -z-10 opacity-50"></div>
-          </div>
+          <Image />
         </div>
       </div>
     </section>

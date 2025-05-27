@@ -1,6 +1,9 @@
 import React from 'react'
+import { useInView } from "react-intersection-observer";
 
 const Learning = () => {
+  const { ref, inView, entry } = useInView({ triggerOnce: true });
+
     const learningGoals = [
   {
     id: 1,
@@ -29,7 +32,7 @@ const Learning = () => {
 ];
   return (
     <>
-      <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
+      <div ref={ref} className={`bg-gray-50 rounded-2xl px-8 pt-8 ${inView && 'animate-fade-in-up'}`}>
       <div className="text-center mb-12">
         <h3 className="text-2xl font-bold text-gray-900 mb-4
         sora-family">Next Learning Goals</h3>
