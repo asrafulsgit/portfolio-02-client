@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import './aside.css'
 const Aside = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSectionClick = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
 
   const navItems = [
     {
@@ -15,7 +9,7 @@ const Aside = () => {
       label: "Profile Management",
       path : 'profile',
       iconPath:
-        "M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2h4a1 1 0 011 1v2a1 1 0 01-1 1h-1v12a2 2 0 01-2 2H6a2 2 0 01-2-2V8H3a1 1 0 01-1-1V5a1 1 0 011-1h4z"
+        "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
     },
     {
       id: "services-management",
@@ -53,28 +47,25 @@ const Aside = () => {
 
   return (
     <>
-      <nav
-        className={`bg-white border-r border-gray-200 w-64 h-screen fixed lg:relative z-50` }
+      <nav id="aside-section"
+        className={`bg-white border-r border-gray-200 w-64 h-screen fixed 
+          lg:relative z-50`}
       >
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
-            </div>
-            <span className="text-xl font-semibold text-gray-800">
-              Portfolio Admin
-            </span>
-          </div>
-         
+          <Link
+                          to="/"
+                          duration={0}
+                          className="text-2xl font-bold text-gray-900 cursor-default sora-family"
+                        >
+                          AS<span className="text-blue-600 text-sm">Dev</span>
+                        </Link>
         </div>
-        <div className="flex-1 px-4 py-6 space-y-2">
-          {navItems.map(({ id,path, label, iconPath, active }) => (
-            <NavLink to={`/admin/${path}`}> 
-                <button
-                key={id}
-                className={`flex w-full items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 
-                    text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:border-gray-200 border border-transparent`}
-                >
+        <div className="flex-1 px-4 py-6 space-y-2 aside-items">
+          {navItems.map(({ id,path, label, iconPath}) => (
+            <NavLink to={`/admin/${path}`} key={id}
+            className={`flex w-full items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 
+                    text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:border-gray-200 border
+                     border-transparent inter-family`}> 
                 <svg
                     className="w-5 h-5 mr-3"
                     fill="none"
@@ -89,7 +80,6 @@ const Aside = () => {
                     />
                 </svg>
                 {label}
-                </button>
             </NavLink>
           ))}
         </div>

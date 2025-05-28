@@ -52,29 +52,29 @@ const Profile = () => {
     <section id="about-management" className="page-section min-h-screen bg-gray-50 p-6">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">About Management</h1>
-        <p className="text-gray-600">Update your about section content and profile information</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 sora-family">About Management</h1>
+        <p className="text-gray-600 inter-family">Update your about section content and profile information</p>
       </div>
 
       {/* About Preview */}
       <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Current About Section</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-4 inter-family">Current About Section</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 bg-gray-50 rounded-lg">
           <div className="flex justify-center">
             <img src={form.image} alt="Profile" className="w-64 h-64 rounded-lg object-cover border border-gray-200" />
           </div>
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-gray-900">{form.name}</h3>
-            <p className="text-lg text-blue-600 font-medium">{form.title}</p>
-            <p className="text-gray-600 leading-relaxed">{form.description}</p>
+            <h3 className="text-2xl font-bold text-gray-900 sora-family">{form.name}</h3>
+            <p className="text-lg text-blue-600 font-medium inter-family">{form.title}</p>
+            <p className="text-gray-600 leading-relaxed inter-family">{form.description}</p>
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div>
-                <span className="text-sm text-gray-500">Experience</span>
-                <p className="font-semibold text-gray-900">{form.experience}</p>
+                <span className="text-sm text-gray-500 sora-family">Experience</span>
+                <p className="font-semibold text-gray-900 inter-family">{form.experience}</p>
               </div>
               <div>
-                <span className="text-sm text-gray-500">Location</span>
-                <p className="font-semibold text-gray-900">{form.location}</p>
+                <span className="text-sm text-gray-500 sora-family">Location</span>
+                <p className="font-semibold text-gray-900 inter-family">{form.location}</p>
               </div>
             </div>
           </div>
@@ -83,9 +83,9 @@ const Profile = () => {
 
       {/* Edit Form */}
       <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Edit About Content</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-6 sora-family">Edit About Content</h2>
 
-        <form className="space-y-6">
+        <form className="space-y-6 inter-family">
           {/* Profile Image */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Profile Image</label>

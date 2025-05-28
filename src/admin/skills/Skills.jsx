@@ -9,12 +9,12 @@ const Skills = () => {
     min-h-screen bg-gray-50 p-6" style={{display: "block"}}>
   {/*  Header  */}
     <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Skills Management</h1>
-        <p className="text-gray-600">Manage your technical skills and proficiency levels</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 sora-family">Skills Management</h1>
+        <p className="text-gray-600 inter-family">Manage your technical skills and proficiency levels</p>
     </div>
 
    {/* Add New Skill Button */}
-      <div className="mb-6">
+      <div className="mb-6 inter-family">
         <button
           onClick={() => setAddSkill(!addSkill)}
           className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center"
@@ -27,77 +27,11 @@ const Skills = () => {
       </div>
 
   {/* Skills Categories */}
-    {/* <div className="space-y-8">
+    <div className="space-y-8">
         <SkillCategory title="Frontend Development" categoryId="frontend" />
         <SkillCategory title="Backend Development" categoryId="backend" />
-    </div> */}
+    </div>
 
-   
-    {/* <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 transform transition-all">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Add New Skill</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        <form className="space-y-4">
-          <div>
-            <label htmlFor="skill-name" className="block text-sm font-medium text-gray-700 mb-1">Skill Name</label>
-            <input type="text" id="skill-name" className="w-full px-3 py-2 border rounded-lg" placeholder="Enter skill name" />
-          </div>
-
-          <div>
-            <label htmlFor="skill-description" className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-            <input type="text" id="skill-description" className="w-full px-3 py-2 border rounded-lg" placeholder="e.g., JavaScript Framework" />
-          </div>
-
-          <div>
-            <label htmlFor="skill-category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-            <select id="skill-category" className="w-full px-3 py-2 border rounded-lg">
-              <option value="frontend">Frontend Development</option>
-              <option value="backend">Backend Development</option>
-              <option value="tools">Tools & Technologies</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="skill-proficiency" className="block text-sm font-medium text-gray-700 mb-1">Proficiency Level (%)</label>
-            <input type="range" min="0" max="100" value={proficiency} onChange={(e) => setProficiency(e.target.value)} className="w-full" />
-            <div className="flex justify-between text-sm text-gray-500 mt-1">
-              <span>0%</span>
-              <span>{proficiency}%</span>
-              <span>100%</span>
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="skill-level" className="block text-sm font-medium text-gray-700 mb-1">Skill Level</label>
-            <select id="skill-level" className="w-full px-3 py-2 border rounded-lg">
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-              <option value="expert">Expert</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Icon Color</label>
-            <div className="flex space-x-2">
-              {['blue', 'green', 'yellow', 'purple', 'orange', 'red'].map(color => (
-                <button key={color} type="button" className={`w-8 h-8 rounded-full bg-${color}-500 border-2 border-transparent hover:border-gray-400`} />
-              ))}
-            </div>
-          </div>
-
-          <div className="flex space-x-3 pt-4">
-            <button type="button" onClick={onSave} className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Save Skill</button>
-            <button type="button" onClick={onClose} className="flex-1 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700">Cancel</button>
-          </div>
-        </form>
-    </div> */}
   <>{addSkill && <AddEditSkillModal  addSkill={addSkill} setAddSkill={()=> setAddSkill(!addSkill)} />}</>
 </section>
   )
@@ -158,20 +92,10 @@ const SkillCategory = ({ title, categoryId }) => {
       },
     ],
   };
-
+   
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
-        <button
-          onClick={() => addSkillToCategory(categoryId)}
-          className="text-blue-600 hover:text-blue-700 transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-          </svg>
-        </button>
-      </div>
+        <h2 className="text-xl font-semibold text-gray-900 mb-5 sora-family">{title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {skills[categoryId].map(skill => (
           <SkillCard key={skill.id} skill={skill} />
@@ -183,14 +107,7 @@ const SkillCategory = ({ title, categoryId }) => {
 
 
 const SkillCard = ({ skill }) => {
-    const openAddSkillModal = () => {
-  console.log("Open Add Skill Modal");
-};
-
-const addSkillToCategory = (categoryId) => {
-  console.log("Add skill to category:", categoryId);
-};
-
+    
 const editSkill = (id) => {
   console.log("Edit skill", id);
 };
@@ -199,7 +116,7 @@ const deleteSkill = (id) => {
   console.log("Delete skill", id);
 };
   return (
-    <div className="skill-card border border-gray-200 rounded-lg p-4">
+    <div className="skill-card border border-gray-200 rounded-lg p-4 inter-family">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center space-x-3">
           <div className={`w-10 h-10 bg-${skill.color}-100 rounded-lg flex items-center justify-center`}>

@@ -6,6 +6,8 @@ import Profile from "../admin/profile/Profile";
 import Services from "../admin/services/Services";
 import Portfolios from "../admin/portfolios/Portfolios";
 import Skills from "../admin/skills/Skills";
+import NotFound from "../pages/notFound/NotFound";
+import Default from "../admin/Default";
 
 
 const Router =createBrowserRouter([
@@ -25,7 +27,7 @@ const Router =createBrowserRouter([
         children :[
             { 
                index : true,
-               Component : <>hello</>,
+               Component :  Default ,
             },
             { 
                path : 'profile',
@@ -45,9 +47,9 @@ const Router =createBrowserRouter([
             }
         ]
     },
-    // {
-    //     path: '/*',
-    //     Component : NotFoundPage
-    // }
+    {
+        path: '/*',
+        Component : NotFound
+    }
 ]) 
 export default Router;
