@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault();
         try {
           const data =  await apiRequiestWithCredentials('post',`/admin/verify/${token}`,{code})
-          console.log(data)
+          navigate('/admin')
         } catch (error) {
             console.log(error)
         }

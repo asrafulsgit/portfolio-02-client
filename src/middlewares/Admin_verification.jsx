@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import NotFound from '../pages/notFound/NotFound';
+import { apiRequiest } from '../utilities/ApiCall';
 
-const Admin_verification = ({children}) => {
-    const {email}=useParams();
+const Admin_verification = () => {
+    const {email} = useParams();
     const [isValid,setIsValid]=useState(false)
     useEffect(()=>{
         setIsValid(isValidEmail(email))
@@ -11,13 +12,14 @@ const Admin_verification = ({children}) => {
      const sendVerificationEmail = async(email)=>{
                 try {
                   await apiRequiest('get',`/admin/${email}`)
+                  setIsValid(false)
                 } catch (error) {
                   console.log(error)
                 }
           }
     if(isValid){
        sendVerificationEmail(email)
-       return <Navigate to='/' />
+       return <h1>loading....</h1>
     }
     return (<NotFound />)
 }
