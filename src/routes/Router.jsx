@@ -8,6 +8,8 @@ import Portfolios from "../admin/portfolios/Portfolios";
 import Skills from "../admin/skills/Skills";
 import NotFound from "../pages/notFound/NotFound";
 import Default from "../admin/Default";
+import Login from "../admin/Login/Login";
+import Admin_verification from "../middlewares/Admin_verification";
 
 
 const Router =createBrowserRouter([
@@ -46,6 +48,14 @@ const Router =createBrowserRouter([
                Component : Skills,
             }
         ]
+    },
+    {
+        path : '/admin/:email',
+        Component : Admin_verification,
+    },
+    {
+        path : '/admin/verify/:token',
+        Component : Login,
     },
     {
         path: '/*',

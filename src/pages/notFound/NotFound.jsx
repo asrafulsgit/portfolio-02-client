@@ -1,9 +1,13 @@
 import React from 'react';
 import './NotFound.css'; 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { apiRequiest } from '../../utilities/ApiCall';
+import { useState } from 'react';
 
 
 const NotFound = () => {
+  
   return (
     <div className="notfound-container-page">
       <img src={'NotFoundImage'} alt="404 Not Found" 
