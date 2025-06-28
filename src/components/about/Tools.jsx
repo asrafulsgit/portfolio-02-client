@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useInView } from "react-intersection-observer";
+import { useSelector } from 'react-redux';
 const Tools = () => {
     const { ref, inView, entry } = useInView({ triggerOnce: true });
      const skillsData = [
@@ -7,6 +8,9 @@ const Tools = () => {
                 { title: 'Backend', colorClass: 'text-green-600', skills: 'Node.js, MongoDB, PostgreSQL' },
                 { title: 'Tools', colorClass: 'text-orange-600', skills: 'Git, AI, VS' },
               ]
+
+      const state = useSelector(state => state?.data)
+  const [profile,setProfile]=useState(state?.profile)
   return (
     <div ref={ref} className="space-y-8">
             <p className='text-green-600'></p>
@@ -14,30 +18,30 @@ const Tools = () => {
               <h3 className="text-2xl font-bold text-gray-900
               sora-family">Crafting Code, Building Dreams</h3>
               <p className="text-gray-600 leading-relaxed inter-family">
-                With over 3 years of experience in full-stack development, I specialize in creating 
-                scalable web applications using modern technologies like React, Node.js, and cloud platforms.
+                {profile?.description1 || `With over 3 years of experience in full-stack development, I 
+                specialize in creating scalable web applications using modern technologies like React,
+                 Node.js, and cloud platforms.`}
               </p>
               <p className="text-gray-600 leading-relaxed inter-family">
-                My approach combines technical expertise with creative problem-solving to deliver 
-                solutions that not only work flawlessly but also provide exceptional user experiences.
+                {profile?.description2 || `My approach combines technical expertise with creative problem-solving to deliver 
+                solutions that not only work flawlessly but also provide exceptional user experiences.`}
               </p>
             </div>
 
             {/* Skills Grid */}
             <div className={`grid grid-cols-1  sm:grid-cols-2 
               gap-6 inter-family ${inView && 'animate-fade-in-up'}`}>
-              {skillsData.map((skill, i) =>{ 
-                const { title, colorClass, skills } = skill;
+              {profile?.technologies?.map((skill, i) =>{ 
+                const { name, color, value } = skill;
                 return(<div
-                  key={title}
-                  
+                  key={i}
                   className="bg-white p-6 rounded-lg border 
                   border-gray-200 hover:shadow-md transition-shadow 
                   duration-300 animate-fade-in"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <div className={`${colorClass} text-2xl font-bold mb-2`}>{title}</div>
-                  <p className="text-gray-600 text-sm">{skills}</p>
+                  <div className={`${color} text-2xl font-bold mb-2`}>{name}</div>
+                  <p className="text-gray-600 text-sm">{value}</p>
                 </div>)
               })}
             </div>

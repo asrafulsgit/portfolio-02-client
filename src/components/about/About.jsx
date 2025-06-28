@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInView } from "react-intersection-observer";
 import './about.css'
 import Tools from './Tools';
 import Image from './Image';
+
 const About = () => {
   const { ref, inView, entry } = useInView({ triggerOnce: true });
- 
+  
   return (
     <section  id="about-section" className="pt-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

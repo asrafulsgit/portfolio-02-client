@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Form from "./Form";
 import Contact_info from "./Contact_info";
 import { useInView } from "react-intersection-observer";
 
 const Contact = () => {
-  
   const { ref, inView, entry } = useInView({ triggerOnce: true });
 
   return (

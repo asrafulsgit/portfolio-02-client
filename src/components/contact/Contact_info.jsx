@@ -1,22 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const Contact_info = () => {
+    
+    const state = useSelector(state => state?.data)
+    const [profile,setProfile]=useState(state?.profile)
     const contactInfo = [
         {
             name : 'Eamil',
-            value : 'sourob2356@gmail.com',
+            value : profile?.email || "sourob2356@gmail.com",
             iconColor : 'bg-blue-600',
             iconBg  : 'bg-blue-100'
         },
         {
             name : 'phone',
-            value : '+8801820286432',
+            value : "+" + profile?.phone || '8801820286432',
             iconColor : 'bg-green-600',
             iconBg  : 'bg-green-100'
         },
         {
             name : 'Loacation',
-            value : 'Dactar Para, Feni Sadar, Feni, Bangladesh',
+            value : profile?.location || 'Dactar Para, Feni Sadar, Feni, Bangladesh',
             iconColor : 'bg-purple-600',
             iconBg  : 'bg-purple-100'
         }

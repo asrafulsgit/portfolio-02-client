@@ -1,8 +1,12 @@
 import React from 'react';
 import profile from '../../assets/profile.png'
 import './hero.css'
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const Hero = () => {
+  const state = useSelector(state => state?.data)
+  const [profileData,setProfileData]=useState(state?.profile)
   return (
     <section
       id="hero-section"
@@ -18,14 +22,14 @@ const Hero = () => {
             <div className='animate-fade-in-up'>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold
                  text-gray-900 mb-4 sm:mb-6 inter-family">
-                  Hi, I'm <span className="text-blue-600">Alex Johnson</span>
+                  Hi, I'm <span className="text-blue-600">{profileData?.name || ''}</span>
                 </h1>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl
                  text-gray-700 mb-4 sm:mb-6 inter-family">
-                  Full Stack Developer
+                  {profileData?.designation || 'Full Stack Developer'}
                 </h2>
                 <p className="text-lg text-gray-600 mb-4 sm:mb-8 max-w-2xl inter-family">
-                  I create beautiful, functional digital experiences that solve real problems and delight users.
+                  {profileData?.subtitle || 'I create beautiful, functional digital experiences that solve real problems and delight users.'}
                 </p>
             </div>
 
@@ -49,15 +53,15 @@ const Hero = () => {
             {/* Quick Stats */}
             <div className="flex flex-wrap gap-8 justify-center lg:justify-start mt-12 inter-family">
               <div className="text-center">
-                <div className="sm:text-2xl font-bold text-gray-900">10+</div>
+                <div className="sm:text-2xl font-bold text-gray-900">{profileData?.projectCompleted || '10'}+</div>
                 <div className="text-[10px] sm:text-sm text-gray-600">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="sm:text-2xl font-bold text-gray-900">2.5+</div>
+                <div className="sm:text-2xl font-bold text-gray-900">{profileData?.yearsOfExperience || '2.5'}+</div>
                 <div className="text-[10px] sm:text-sm text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="sm:text-2xl font-bold text-gray-900">24h</div>
+                <div className="sm:text-2xl font-bold text-gray-900">{profileData?.responseTime || '24'}h</div>
                 <div className="text-[10px] sm:text-sm text-gray-600">Response Time</div>
               </div>
             </div>

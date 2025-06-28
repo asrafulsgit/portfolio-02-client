@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import {Link as SLink } from "react-scroll";
 import './footer.css'
+import { useSelector } from "react-redux";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -42,17 +43,18 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
+  const state = useSelector(state => state?.data)
+    const [profile,setProfile]=useState(state?.profile)
   const contactInfo =[
     {
                 color: "bg-blue-600",
-                text: "hello@developer.com",
+                text: profile?.email || "hello@developer.com",
               }, {
                 color: "bg-green-600",
-                text: "+1 (555) 123-4567",
+                text: '+'+  profile?.phone || "8801820286432",
               }, {
                 color: "bg-purple-600",
-                text: "San Francisco, CA",
+                text: profile?.location || "Feni, Bangladesh",
               }]
   return (
     <footer id="footer" className="bg-gray-900 text-white py-16" 
