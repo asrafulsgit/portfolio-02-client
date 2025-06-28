@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { apiRequiestWithCredentials } from '../utilities/ApiCall';
 
 const Admin_auth = () => {
-  const navigate = useNavigate();
   const [loading,setLoading]=useState(true);
   const [isAdmin,setIsAdmin]=useState(false);
    
@@ -17,7 +16,7 @@ const Admin_auth = () => {
      setLoading(false);
     } catch (error) {
       console.log(error);
-      navigate('/404')
+      setIsAdmin(false)
       setLoading(false);
     }
   }
