@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
 
         <div className="bg-gray-800 rounded-2xl p-8 mb-12 animate-fade-in-up">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h4 className="text-[18px] font-medium mb-2 sora-family">Stay Updated</h4>
               <p className="text-gray-300 font-[300] inter-family">

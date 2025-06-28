@@ -9,7 +9,6 @@ const Portfolio = () => {
   const { ref, inView, entry } = useInView({ triggerOnce: true });
 
 
-  const [isOpenModal,setIsOpenModal] = useState(false)
 
   return (
 
@@ -35,8 +34,7 @@ const Portfolio = () => {
 
 
 
-    {/* <!-- Project Modal --> */}
-    {isOpenModal && <Modal /> }
+   
 
   </section>
 

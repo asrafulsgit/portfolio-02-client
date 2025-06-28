@@ -9,7 +9,7 @@ const Tools = () => {
               ]
   return (
     <div ref={ref} className="space-y-8">
-            
+            <p className='text-green-600'></p>
             <div className={`space-y-6 ${inView && 'animate-fade-in-up'}`}>
               <h3 className="text-2xl font-bold text-gray-900
               sora-family">Crafting Code, Building Dreams</h3>
@@ -24,7 +24,8 @@ const Tools = () => {
             </div>
 
             {/* Skills Grid */}
-            <div className={`grid grid-cols-2 gap-6 inter-family ${inView && 'animate-fade-in-up'}`}>
+            <div className={`grid grid-cols-1  sm:grid-cols-2 
+              gap-6 inter-family ${inView && 'animate-fade-in-up'}`}>
               {skillsData.map((skill, i) =>{ 
                 const { title, colorClass, skills } = skill;
                 return(<div

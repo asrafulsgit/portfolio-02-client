@@ -6,21 +6,21 @@ const Tools = () => {
 
     const toolsData = [
   {
-    name: "AWS",
+    name: "JavaScript",
     iconBg: "bg-orange-100",
     iconHoverBg: "bg-orange-200",
     iconColor: "bg-orange-600",
     hoverBorder: "hover:border-orange-300"
   },
   {
-    name: "Docker",
+    name: "TypeScript",
     iconBg: "bg-blue-100",
     iconHoverBg: "bg-blue-200",
     iconColor: "bg-blue-600",
     hoverBorder: "hover:border-blue-300"
   },
   {
-    name: "Git",
+    name: "React",
     iconBg: "bg-red-100",
     iconHoverBg: "bg-red-200",
     iconColor: "bg-red-600",
@@ -28,21 +28,21 @@ const Tools = () => {
     transform: "translateY(0px) rotate(0deg)"
   },
   {
-    name: "VS",
+    name: "Node.js",
     iconBg: "bg-purple-100",
     iconHoverBg: "bg-purple-200",
     iconColor: "bg-purple-600",
     hoverBorder: "hover:border-purple-300"
   },
   {
-    name: "Webpack",
+    name: "MongoDB",
     iconBg: "bg-blue-100",
     iconHoverBg: "bg-blue-200",
     iconColor: "bg-blue-500",
     hoverBorder: "hover:border-blue-300"
   },
   {
-    name: "Jest",
+    name: "PostgreSQL",
     iconBg: "bg-green-100",
     iconHoverBg: "bg-green-200",
     iconColor: "bg-green-600",

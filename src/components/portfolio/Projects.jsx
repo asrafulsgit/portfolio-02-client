@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useInView } from "react-intersection-observer";
+import Modal from './Modal';
 
 const projectsData = [
   {
@@ -91,6 +92,14 @@ const Projects = () => {
   const { ref, inView, entry } = useInView({ triggerOnce: true });
 
       const [isActive,setIsActive] = useState(null)
+      const [project,setProject] = useState(null)
+
+     const [isOpenModal,setIsOpenModal] = useState(false)
+     const handleModal=(project)=>{
+        setProject(project)
+        setIsOpenModal(true)
+     }
+
   return (
     <>
     {/* Filter Tabs */}
@@ -137,6 +146,7 @@ const Projects = () => {
                ${project.overlayColor} bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 
                flex items-center justify-center  ${isActive == i ? 'visible' : 'invisible'} `}>
                 <button
+                onClick={()=>handleModal(project)}
                   className={`view-project-btn opacity-0 group-hover:opacity-100
                      bg-white ${project.textColor} px-6 py-2 rounded-lg font-semibold
                       transform translate-y-4 group-hover:translate-y-0 transition-all 
@@ -163,6 +173,9 @@ const Projects = () => {
           </div>
         ))}
       </div>
+
+       {/* <!-- Project Modal --> */}
+      {isOpenModal && <Modal project={project} closeModal={()=>setIsOpenModal(false)} /> }
     </>
   )
 }

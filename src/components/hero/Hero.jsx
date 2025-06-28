@@ -1,5 +1,7 @@
 import React from 'react';
+import profile from '../../assets/profile.png'
 import './hero.css'
+
 const Hero = () => {
   return (
     <section
@@ -65,17 +67,18 @@ const Hero = () => {
           <div className="flex justify-center lg:justify-end 
           order-1 lg:order-2 pt-10 lg:pt-0">
             <div className="relative">
-              <div className="w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden shadow-2xl">
+              <div className="w-80 h-80 sm:w-100 sm:h-100 rounded-full 
+              overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1607294846590-fd005d7973e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8ZGV2ZWxvcGVyJTI1MjB3b3Jrc3BhY2UlMjUyMG1vZGVybiUyNTIwY2xlYW58ZW58MXwwfHx8MTc0ODIzNDY0MXww&ixlib=rb-4.1.0&q=80&w=1080"
+                  src={profile}
                   alt="Alex Johnson - Full Stack Developer"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-1  sm:top-12 lg:-top-4 
-              -right-2 sm:-right-18  lg:-right-4 bg-white 
+              <div className="absolute -top-1  sm:top-8 lg:-top-4 
+              -right-2 sm:-right-22  lg:-right-4 bg-white 
               rounded-lg shadow-lg p-2  sm:p-4 inter-family"
               style={{
                 animation: "hero-badge 3s ease-in-out 0s infinite normal none running",

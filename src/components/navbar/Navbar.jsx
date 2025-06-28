@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-scroll';
 import './navbar.css';
-
+import logo from '../../assets/logo.png'
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
@@ -42,7 +42,9 @@ const Navbar = () => {
                 duration={0}
                 className="text-2xl font-bold text-gray-900 cursor-default sora-family"
               >
-                AS<span className="text-blue-600 text-sm">Dev</span>
+               <img src={logo} alt="" 
+                className='w-10 h-10'
+               />
               </Link>
             </div>
 
