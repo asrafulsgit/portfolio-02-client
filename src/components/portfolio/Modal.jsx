@@ -39,7 +39,7 @@ const Modal = ({ project, closeModal }) => {
                 <div class="flex flex-wrap gap-2">
                 { project?.tags?.map((tag,index)=>{
                   return(
-                    <span class={`${tag?.textColor} ${tag?.bgColor}  px-3 
+                    <span key={index} class={`${tag?.textColor} ${tag?.bgColor}  px-3 
                     py-1 rounded-full text-sm`}>
                     {tag?.name}
                   </span>
@@ -54,38 +54,27 @@ const Modal = ({ project, closeModal }) => {
                   Key Features
                 </h3>
                 <ul class="grid md:grid-cols-2 gap-2">
-                  <li class="flex items-center text-gray-600">
+                  {project?.features.map((feature,index)=>(
+                    <li key={index} class="flex items-center text-gray-600">
                     <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Workout tracking
+                    {feature}
                   </li>
-                  <li class="flex items-center text-gray-600">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Nutrition monitoring
-                  </li>
-                  <li class="flex items-center text-gray-600">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Progress analytics
-                  </li>
-                  <li class="flex items-center text-gray-600">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Social features
-                  </li>
-                  <li class="flex items-center text-gray-600">
-                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                    Offline support
-                  </li>
+                  ))}
+                  
                 </ul>
               </div>
 
               <div class="flex gap-4 pt-4">
                 <a
-                  href="#"
+                  href={project?.liveUrl}
+                  target="_blank"
                   class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
                 >
                   View Live Site
                 </a>
                 <a
-                  href="#"
+                  href={project?.codeUrl}
+                  target="_blank"
                   class="border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
                 >
                   View Code

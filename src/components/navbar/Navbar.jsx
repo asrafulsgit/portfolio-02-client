@@ -40,10 +40,11 @@ const Navbar = () => {
               <Link
                 to="home"
                 duration={0}
-                className="text-2xl font-bold text-gray-900 cursor-default sora-family"
+                className="text-2xl font-bold text-gray-900 
+                cursor-default sora-family"
               >
                <img src={logo} alt="" 
-                className='w-10 h-10'
+                className='w-20'
                />
               </Link>
             </div>

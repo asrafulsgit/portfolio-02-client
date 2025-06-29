@@ -13,8 +13,8 @@ const Contact_info = () => {
             iconBg  : 'bg-blue-100'
         },
         {
-            name : 'phone',
-            value : "+" + profile?.phone || '8801820286432',
+            name : 'Phone',
+            value :  profile?.phone || '8801820286432',
             iconColor : 'bg-green-600',
             iconBg  : 'bg-green-100'
         },
@@ -78,36 +78,32 @@ const Contact_info = () => {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/md-asraful-islam-b71158301"
+                  target='_blank'
                   className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
                   <span className="text-sm font-bold">Li</span>
                 </a>
                 <a
-                  href="#"
+                  target='_blank'
+                  href="https://github.com/asrafulsgit"
                   className="w-12 h-12 bg-gray-800 hover:bg-gray-900 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
                   <span className="text-sm font-bold">Gh</span>
                 </a>
                 <a
-                  href="#"
+                  target='_blank'
+                  href="https://www.facebook.com/Asraful2356"
                   className="w-12 h-12 bg-blue-400 hover:bg-blue-500 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
                 >
-                  <span className="text-sm font-bold">Tw</span>
+                  <span className="text-sm font-bold">FB</span>
                 </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
-                >
-                  <span className="text-sm font-bold">Em</span>
-                </a>
+                
               </div>
             </div>
             </div>
 
             {/* Social Links */}
-          
-
           </div>
   )
 }

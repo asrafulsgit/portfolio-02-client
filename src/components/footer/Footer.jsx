@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
 import {Link as SLink } from "react-scroll";
-import './footer.css'
 import { useSelector } from "react-redux";
+import logo from '../../assets/logo.png'
+import './footer.css'
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -62,30 +63,30 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 animate-fade-in-up">
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 sora-family">
-                AS<span className='text-blue-600 text-sm'>Dev</span>
-            </h3>
+            <img src={logo} alt="logo" className='w-20 mb-3' />
             <p className="text-gray-300 leading-relaxed max-w-md inter-family">
               Full-stack developer specializing in modern web applications.
               Transforming ideas into scalable digital solutions with cutting-edge technologies.
             </p>
             <div className="flex space-x-4 mt-6">
-              {["Li", "Gh", "Tw", "Em"].map((label, idx) => (
+              {[{link: "https://www.linkedin.com/in/md-asraful-islam-b71158301/",
+              name : "Li"},
+              {link: "https://github.com/asrafulsgit",name : "Gh"},
+              {link: "https://www.facebook.com/Asraful2356",name : "Fb"}].map((social, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={social.link}
+                  target="_blank"
                   className={`w-10 h-10 bg-gray-800 hover:${
-                    label === "Li"
+                    social.name === "Li"
                       ? "bg-blue-600"
-                      : label === "Tw"
+                      : social.name === "Fb"
                       ? "bg-blue-400"
-                      : label === "Em"
-                      ? "bg-red-600"
                       : "bg-gray-700"
                   } rounded-lg flex items-center justify-center 
                   transition-colors duration-300 inter-family`}
                 >
-                  <span className="text-sm font-bold">{label}</span>
+                  <span className="text-sm font-bold">{social.name}</span>
                 </a>
               ))}
             </div>

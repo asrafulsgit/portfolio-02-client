@@ -3,6 +3,7 @@ import profile from '../../assets/profile.png'
 import './hero.css'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { Link } from 'react-scroll';
 
 const Hero = () => {
   const state = useSelector(state => state?.data)
@@ -22,7 +23,7 @@ const Hero = () => {
             <div className='animate-fade-in-up'>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold
                  text-gray-900 mb-4 sm:mb-6 inter-family">
-                  Hi, I'm <span className="text-blue-600">{profileData?.name || ''}</span>
+                  Hi, I'm <span className="text-blue-600">{profileData?.name || 'MD ASRAFUL ISLAM'}</span>
                 </h1>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl
                  text-gray-700 mb-4 sm:mb-6 inter-family">
@@ -36,18 +37,18 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center 
             lg:justify-start animate-fade-in-up">
-              <a
-                href="#projects"
+              <button
+               
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                View My Work
-              </a>
-              <a
+                Download Resume
+              </button>
+            <Link to='contact' smooth={true} duration={0}>  <button
                 href="#contact"
                 className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors"
               >
                 Get In Touch
-              </a>
+              </button></Link>
             </div>
 
             {/* Quick Stats */}

@@ -3,13 +3,13 @@ const servicesData = [
   {
     title: "Frontend Development",
     description:
-      "Modern, responsive interfaces using React, Vue.js, and cutting-edge CSS frameworks. Optimized for performance and user experience.",
+      "Modern, responsive interfaces using React, Next.js, and cutting-edge CSS frameworks. Optimized for performance and user experience.",
     colorBg: "bg-blue-100",
     colorHoverBg: "group-hover:bg-blue-200",
     iconColor: "bg-blue-600",
     borderHover: "hover:border-blue-300",
     points: [
-      "React & Vue.js Applications",
+      "React & Next.js Applications",
       "Responsive Design",
       "Performance Optimization",
     ],
@@ -17,7 +17,7 @@ const servicesData = [
   {
     title: "Backend Development",
     description:
-      "Scalable server-side solutions with Node.js, Python, and robust database architecture. Secure and efficient API development.",
+      "Scalable server-side solutions with Node.js, Express.js, and robust database architecture. Secure and efficient API development.",
     colorBg: "bg-green-100",
     colorHoverBg: "group-hover:bg-green-200",
     iconColor: "bg-green-600",

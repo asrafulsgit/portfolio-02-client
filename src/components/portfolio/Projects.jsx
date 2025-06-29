@@ -5,87 +5,57 @@ import Modal from './Modal';
 const projectsData = [
   {
     id: 1,
-    title: "Analytics Dashboard",
-    description: "Real-time data visualization platform with interactive charts and comprehensive reporting features.",
+    title: "AthleticHub",
+    description: "AthleticHub is a sports event management platform that enables users to discover, register for, and manage various athletic events. It provides features for both users and administrators, such as event creation, participant tracking, and performance insights.",
     category: "web",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://i.ibb.co/4wfhfD6n/pngtree-a-vector-illustration-of-athletes-in-different-sports-poster-image-1102701.jpg",
     tags: [
       { name: "React", bgColor: "bg-blue-100", textColor: "text-blue-800" },
       { name: "Node.js", bgColor: "bg-green-100", textColor: "text-green-800" },
-      { name: "D3.js", bgColor: "bg-purple-100", textColor: "text-purple-800" }
+      { name: "MongoDB.js", bgColor: "bg-purple-100", textColor: "text-purple-800" }
     ],
+    features : ['Manage events and users','Review and feedback system','Participant registration','Responsive and modern UI using Tailwind CSS'],
     overlayColor: "bg-blue-600/70",
-    animationDelay: "0s"
+    animationDelay: "0s",
+    liveUrl : 'https://gleeful-kitten-23d3a7.netlify.app',
+    codeUrl : 'https://github.com/asrafulsgit/athleticHub-client'
   },
   {
     id: 2,
-    title: "Team Collaboration Hub",
-    description: "Comprehensive workspace solution for remote teams with real-time communication and project management.",
+    title: "GardenHub",
+    description: "Garden Hub is a community-driven web application designed to support new and experienced gardeners alike. It allows users to share their gardening knowledge, ask questions, attend events, and connect with other passionate gardeners. Whether you’re troubleshooting a plant issue or attending a community event, Garden Hub provides a collaborative platform for all your gardening needs.",
     category: "web",
-    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    imageUrl: "https://i.ibb.co/wN0nBz9w/gardener-7089417-1280.webp",
     tags: [
-      { name: "Vue.js", bgColor: "bg-blue-100", textColor: "text-blue-800" },
+      { name: "React.js", bgColor: "bg-blue-100", textColor: "text-blue-800" },
       { name: "Firebase", bgColor: "bg-yellow-100", textColor: "text-yellow-800" },
-      { name: "Socket.io", bgColor: "bg-red-100", textColor: "text-red-800" }
+      { name: "Express.js", bgColor: "bg-red-100", textColor: "text-red-800" },
+      { name: "MongoDB", bgColor: "bg-blue-100", textColor: "text-blue-800" }
     ],
+    features : ['Gardener Profiles','Share Gardening Tips','Gardening Events','Expert Advice'],
     overlayColor: "bg-green-600/70",
-    animationDelay: "0.1s"
+    animationDelay: "0.1s",
+    liveUrl : 'https://stalwart-cascaron-cc8d0a.netlify.app',
+    codeUrl : 'https://github.com/asrafulsgit/gardenhub-client'
   },
   {
     id: 3,
-    title: "Online Code Editor",
-    description: "Browser-based IDE with syntax highlighting, live preview, and collaborative coding features.",
-    category: "web",
-    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "X clothes",
+    description: "A full-stack eCommerce application for a clothing store. It allows users to browse products, add to cart, make payments, and track orders. Admins can manage products, orders, and users.",
+    category: "E-commerce",
+    imageUrl: "https://i.ibb.co/MkNr1cDy/ecommerce-web-page-concept-illustration-114360-8204.jpg",
     tags: [
-      { name: "TypeScript", bgColor: "bg-orange-100", textColor: "text-orange-800" },
-      { name: "Monaco Editor", bgColor: "bg-indigo-100", textColor: "text-indigo-800" },
-      { name: "WebSockets", bgColor: "bg-pink-100", textColor: "text-pink-800" }
+      { name: "React", bgColor: "bg-orange-100", textColor: "text-orange-800" },
+      { name: "Firebase", bgColor: "bg-pink-100", textColor: "text-pink-800" },
+      { name: "Node.js", bgColor: "bg-indigo-100", textColor: "text-indigo-800" },
+      { name: "Socket.io", bgColor: "bg-pink-100", textColor: "text-pink-800" },
+      { name: "MongoDB", bgColor: "bg-orange-100", textColor: "text-orange-800" },
     ],
+    features : ['Browse, filter, and search clothing products','Wishlist (Favorites)','Add to cart & checkout','SSLCOMMERZ payment integration','Order history & tracking','Admin dashboard','Mobile responsive UI'],
     overlayColor: "bg-purple-600/70",
-    animationDelay: "0.2s"
-  },
-  {
-    id: 4,
-    title: "E-commerce Platform",
-    description: "Full-featured online marketplace with advanced search, payment processing, and vendor management.",
-    category: "ecommerce",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8NHx8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: [
-      { name: "Next.js", bgColor: "bg-blue-100", textColor: "text-blue-800" },
-      { name: "Stripe", bgColor: "bg-green-100", textColor: "text-green-800" },
-      { name: "PostgreSQL", bgColor: "bg-gray-100", textColor: "text-gray-800" }
-    ],
-    overlayColor: "bg-orange-600/70",
-    animationDelay: "0.3s"
-  },
-  {
-    id: 5,
-    title: "Fitness Tracking App",
-    description: "Cross-platform mobile application for workout tracking, nutrition monitoring, and progress analytics.",
-    category: "mobile",
-    imageUrl: "https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8NXx8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: [
-      { name: "React Native", bgColor: "bg-blue-100", textColor: "text-blue-800" },
-      { name: "Redux", bgColor: "bg-purple-100", textColor: "text-purple-800" },
-      { name: "SQLite", bgColor: "bg-green-100", textColor: "text-green-800" }
-    ],
-    overlayColor: "bg-indigo-600/70",
-    animationDelay: "0.4s"
-  },
-  {
-    id: 6,
-    title: "Creative Portfolio Site",
-    description: "Interactive portfolio website with stunning animations, smooth transitions, and immersive user experience.",
-    category: "web",
-    imageUrl: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Nnx8d2ViJTI1MjBkZXZlbG9wZXIlMjUyMHBvcnRmb2xpbyUyNTIwcHJvZmVzc2lvbmFsJTI1MjBtb2Rlcm4lMjUyMG1vY2t1cHxlbnwxfDB8fHwxNzQ4MjMzOTA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    tags: [
-      { name: "Three.js", bgColor: "bg-yellow-100", textColor: "text-yellow-800" },
-      { name: "GSAP", bgColor: "bg-blue-100", textColor: "text-blue-800" },
-      { name: "WebGL", bgColor: "bg-purple-100", textColor: "text-purple-800" }
-    ],
-    overlayColor: "bg-pink-600/70",
-    animationDelay: "0.5s"
+    animationDelay: "0.2s",
+    liveUrl : '',
+    codeUrl : 'https://github.com/asrafulsgit/X-clothes-1.1'
   }
 ];
 const Projects = () => {
@@ -160,9 +130,11 @@ const Projects = () => {
             <div className="py-6 px-4">
               <h3 className="text-xl font-bold text-gray-900 mb-2 sora-family
               ">{project.title}</h3>
-              <p className="text-gray-600 mb-4 inter-family">{project.description}</p>
+              <p className="text-gray-600 mb-4 inter-family">{
+              project?.description.length > 100 ? `${project?.description.slice(0,100)}...` : project?.description
+              }</p>
               <div className="flex flex-wrap gap-2 inter-family">
-                {project.tags.map((tag, j) => (
+                {project?.tags.slice(0,3).map((tag, j) => (
                   <span key={j} className={`${tag.bgColor} ${tag.textColor} 
                   px-3 py-1 rounded-full text-sm inter-family`}>
                     {tag.name}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
+import { Link } from 'react-scroll';
 const Contact = () => {
 const { ref, inView, entry } = useInView({ triggerOnce: true });
 
@@ -13,20 +14,29 @@ const { ref, inView, entry } = useInView({ triggerOnce: true });
             together. Get a free consultation and project estimate.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center inter-family">
-            <button
+          <Link to='contact'
+            smooth={true}
+            duration={0}>  <button
               className="bg-blue-600 hover:bg-blue-700 text-white
            px-8 py-3 rounded-lg font-semibold transition-all 
            duration-300 transform cursor-pointer"
             >
               Get Free Quote
-            </button>
-            <button
+            </button></Link>
+            
+            <Link
+            to='portfolio'
+            smooth={true}
+            duration={0}
+                
+            > <button
+              
               className="border border-gray-300 hover:border-gray-400
            text-gray-700 hover:text-gray-900 px-8 py-3 rounded-lg font-semibold
             transition-all duration-300 hover:bg-gray-50 cursor-pointer"
             >
               View Portfolio
-            </button>
+            </button></Link>
           </div>
         </div>
   )

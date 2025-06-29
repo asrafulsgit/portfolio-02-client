@@ -11,22 +11,22 @@ const Skills = () => {
         color: "bg-blue-600"
       },
       {
+        name: "Next",
+        percentage:50,
+        color: "bg-green-600"
+      },
+      {
         name: "JavaScript",
         percentage: 90,
         color: "bg-yellow-500"
       },
       {
         name: "TypeScript",
-        percentage: 85,
+        percentage: 70,
         color: "bg-blue-500"
       },
       {
-        name: "Vue.js",
-        percentage: 80,
-        color: "bg-green-500"
-      },
-      {
-        name: "CSS/Tailwind",
+        name: "CSS/Tailwind/Bootstrap",
         percentage: 92,
         color: "bg-purple-500"
       }
@@ -39,9 +39,9 @@ const Skills = () => {
         color: "bg-green-600"
       },
       {
-        name: "Python",
-        percentage: 82,
-        color: "bg-blue-500"
+        name: "Express.js",
+        percentage: 90,
+        color: "bg-gray-700"
       },
       {
         name: "PostgreSQL",
@@ -52,14 +52,7 @@ const Skills = () => {
         name: "MongoDB",
         percentage: 78,
         color: "bg-green-500"
-      },
-      {
-        name: "Express.js",
-        percentage: 90,
-        color: "bg-gray-700"
       }
-    
-
 ];
 
   return (

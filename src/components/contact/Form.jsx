@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { apiRequiest } from "../../utilities/ApiCall";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const Form = () => {
+  const state = useSelector((state) => state?.data);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     projectType: "",
-    budget: "",
-    message: "",
+    budgetRange: "",
+    projectDetails: "",
+    adminEmail: state.profile.email || "sourob2356@gmail.com",
   });
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
@@ -21,26 +26,30 @@ const Form = () => {
     if (!formData.name.trim()) newErrors.name = "Please enter your name";
     if (!formData.email.trim() || !isValidEmail(formData.email))
       newErrors.email = "Please enter a valid email";
-    if (!formData.message.trim())
-      newErrors.message = "Please describe your project";
+    if (!formData.projectDetails.trim())
+      newErrors.projectDetails = "Please describe your project";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      projectType: "",
-      budget: "",
-      message: "",
-    });
-
-    setTimeout(() => setSuccess(false), 5000);
+    try {
+      const data = await apiRequiest("post", "/admin/profile/email",formData);
+      setSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        projectType: "",
+        budgetRange: "",
+        projectDetails: "",
+      });
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (error) {
+      toast.error(error?.response?.data?.message)
+    }
   };
   return (
     <>
@@ -126,20 +135,20 @@ const Form = () => {
 
           <div>
             <label
-              htmlFor="budget"
+              htmlFor="budgetRange"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Budget Range
+              budgetRange Range
             </label>
             <select
-              id="budget"
-              name="budget"
-              value={formData.budget}
+              id="budgetRange"
+              name="budgetRange"
+              value={formData.budgetRange}
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 
               rounded-lg outline-none  focus:border-blue-500 transition-colors duration-300"
             >
-              <option value="">Select budget range</option>
+              <option value="">Select budgetRange range</option>
               <option value="5k-10k">$5,000 - $10,000</option>
               <option value="10k-25k">$10,000 - $25,000</option>
               <option value="25k-50k">$25,000 - $50,000</option>
@@ -149,23 +158,23 @@ const Form = () => {
 
           <div>
             <label
-              htmlFor="message"
+              htmlFor="projectDetails"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
               Project Details *
             </label>
             <textarea
-              id="message"
-              name="message"
-              value={formData.message}
+              id="projectDetails"
+              name="projectDetails"
+              value={formData.projectDetails}
               onChange={handleChange}
               rows="5"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg
                outline-none focus:border-blue-500 transition-colors duration-300 resize-vertical"
               placeholder="Tell me about your project requirements, timeline, and any specific features you need..."
             ></textarea>
-            {errors.message && (
-              <p className="text-red-500 text-sm">{errors.message}</p>
+            {errors.projectDetails && (
+              <p className="text-red-500 text-sm">{errors.projectDetails}</p>
             )}
           </div>
 
@@ -176,13 +185,13 @@ const Form = () => {
               transition-all duration-300 transform cursor-pointer
               focus:ring-offset-2"
           >
-            Send Message
+            Send projectDetails
           </button>
 
           {success && (
             <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-              Thank you! Your message has been sent successfully. I'll get back
-              to you within 24 hours.
+              Thank you! Your projectDetails has been sent successfully. I'll
+              get back to you within 24 hours.
             </div>
           )}
         </form>
