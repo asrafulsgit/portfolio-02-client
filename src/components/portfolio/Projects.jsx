@@ -17,7 +17,7 @@ const projectsData = [
     features : ['Manage events and users','Review and feedback system','Participant registration','Responsive and modern UI using Tailwind CSS'],
     overlayColor: "bg-blue-600/70",
     animationDelay: "0s",
-    liveUrl : 'https://gleeful-kitten-23d3a7.netlify.app',
+    liveUrl : 'https://athletichub25.netlify.app',
     codeUrl : 'https://github.com/asrafulsgit/athleticHub-client'
   },
   {
@@ -35,7 +35,7 @@ const projectsData = [
     features : ['Gardener Profiles','Share Gardening Tips','Gardening Events','Expert Advice'],
     overlayColor: "bg-green-600/70",
     animationDelay: "0.1s",
-    liveUrl : 'https://stalwart-cascaron-cc8d0a.netlify.app',
+    liveUrl : 'https://gardenhub25.netlify.app',
     codeUrl : 'https://github.com/asrafulsgit/gardenhub-client'
   },
   {

@@ -48,6 +48,9 @@ const Tools = () => {
 
             {/* CTA Button */}
             <div className={`pt-4  ${inView && 'animate-fade-in-up'}`}>
+             <a href="https://drive.google.com/file/d/1zBmVWCUDpBjt4GiR6VUpEImKcr4_WJpZ/view?usp=sharing"
+            target='_blank'> 
+              
               <button
             
                 className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-8 
@@ -55,7 +58,7 @@ const Tools = () => {
                 transform"
               >
                 Download Resume
-              </button>
+              </button></a>
             </div>
     </div>
   )
