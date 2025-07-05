@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import   { useState } from 'react'
 import { useInView } from "react-intersection-observer";
 import Modal from './Modal';
 
@@ -58,8 +58,9 @@ const projectsData = [
     codeUrl : 'https://github.com/asrafulsgit/X-clothes-1.1'
   }
 ];
+
 const Projects = () => {
-  const { ref, inView, entry } = useInView({ triggerOnce: true });
+  const { ref, inView} = useInView({ triggerOnce: true });
 
       const [isActive,setIsActive] = useState(null)
       const [project,setProject] = useState(null)

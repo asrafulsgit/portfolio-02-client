@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import NotFound from '../pages/notFound/NotFound';
 import { apiRequiest } from '../utilities/ApiCall';
+import { toast } from 'react-toastify';
 
 const Admin_verification = () => {
     const {email} = useParams();
@@ -14,7 +15,7 @@ const Admin_verification = () => {
                   await apiRequiest('get',`/admin/${email}`)
                   setIsValid(false)
                 } catch (error) {
-                  console.log(error)
+                  toast.error(error?.response?.data?.message)
                 }
           }
     if(isValid){

@@ -10,7 +10,6 @@ export const  apiRequiest = async(method,route,data=null,headers={}) =>{
           })
           return res.data;
      } catch (error) {
-          console.log('API ERROR : ',error)
           throw error;
      }
 }
@@ -27,7 +26,6 @@ export const apiRequiestWithCredentials=async(method,route,data=null,headers={})
           })
           return res.data;
      } catch (error) {
-          console.log('API ERROR : ',error)
           throw error;
      }
 }

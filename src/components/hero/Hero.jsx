@@ -22,7 +22,7 @@ const Hero = () => {
 
             <div className='animate-fade-in-up'>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold
-                 text-gray-900 mb-4 sm:mb-6 inter-family">
+                 text-gray-900 mb-4 sm:mb-6 inter-family leading-19">
                   Hi, I'm <span className="text-blue-600">{profileData?.name || 'MD ASRAFUL ISLAM'}</span>
                 </h1>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl
@@ -38,14 +38,15 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center 
             lg:justify-start animate-fade-in-up">
               <button
-               
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 Download Resume
               </button>
-            <Link to='contact' smooth={true} duration={0}>  <button
+            <Link to='contact' smooth={true} duration={0} className='border-2 border-blue-600 text-blue-600 
+            px-8 py-3 rounded-lg font-semibold hover:bg-blue-600
+             hover:text-white transition-colors cursor-pointer' >  <button
                 href="#contact"
-                className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+                className="text-[16px]"
               >
                 Get In Touch
               </button></Link>

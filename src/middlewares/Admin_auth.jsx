@@ -4,6 +4,7 @@ import Home from '../admin/Home';
 import NotFound from '../pages/notFound/NotFound';
 import { useEffect, useState } from 'react';
 import { apiRequiestWithCredentials } from '../utilities/ApiCall';
+import { toast } from 'react-toastify';
 
 const Admin_auth = () => {
   const [loading,setLoading]=useState(true);
@@ -15,9 +16,9 @@ const Admin_auth = () => {
      setIsAdmin(true);
      setLoading(false);
     } catch (error) {
-      console.log(error);
       setIsAdmin(false)
       setLoading(false);
+      toast.error(error?.response?.data?.message)
     }
   }
   useEffect(()=>{

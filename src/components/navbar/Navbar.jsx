@@ -5,16 +5,11 @@ import logo from '../../assets/logo.png'
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef(null);
-  const [menuVisible, setMenuVisible] = useState(false);
+  // const [menuVisible, setMenuVisible] = useState(false);
+
 
   const toggleMenu = () => {
-    if (menuOpen) {
-      setMenuOpen(false);
-      setTimeout(() => setMenuVisible(false), 300);
-    } else {
-      setMenuVisible(true);
-      setTimeout(() => setMenuOpen(true), 10);
-    }
+    setMenuOpen(!menuOpen)
   };
 
   const navItems = [
@@ -75,9 +70,8 @@ const Navbar = () => {
               <button
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                aria-expanded={menuOpen}
-                aria-label="Toggle menu"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                className="inline-flex text-blue-600 cursor-pointer items-center 
+                justify-center p-2 rounded-md  hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
               >
                 {menuOpen ? (
                   <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -95,14 +89,15 @@ const Navbar = () => {
       </nav>
 
       {/* ✅ Animated Mobile Menu Below Navbar */}
-      {menuVisible && (
+      
         <div
-          className={`fixed top-16 left-0 w-full md:hidden z-40 transition-all duration-300 ease-in-out overflow-hidden ${
-            menuOpen ? 'animate-slideDown' : 'animate-slideUp'
+          className={`fixed top-16 left-0 right-0 w-full md:hidden z-40 
+            transition-all duration-300 ease-in-out overflow-hidden ${
+            menuOpen ? 'animate-slideDown' : 'hidden'
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-            <ul className="space-y-1">
+          <div className="mobile px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+            <ul className="space-y-1" >
               {navItems.map((item) => (
                 <li key={item.name}>
                   <Link
@@ -113,7 +108,10 @@ const Navbar = () => {
                     activeClass="active"
                     onSetActive={() => setActiveSection(item.section)}
                     onClick={toggleMenu}
-                    className={`block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium capitalize ${
+                    className={`block cursor-pointer px-3 py-2
+                       text-gray-700 hover:text-blue-600
+                        hover:bg-gray-50 rounded-md font-medium 
+                        capitalize ${
                       activeSection === item.section ? 'active' : ''
                     }`}
                   >
@@ -124,7 +122,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-      )}
+     
     </>
   );
 };

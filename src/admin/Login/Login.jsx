@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { apiRequiestWithCredentials } from '../../utilities/ApiCall'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Login = () => {
     
     useEffect(()=>{
         if(!token){
+            toast.error('Token not Found')
             navigate('/404')
         }
     },[])
@@ -20,7 +22,7 @@ const Login = () => {
           const data =  await apiRequiestWithCredentials('post',`/admin/verify/${token}`,{code})
           navigate('/admin')
         } catch (error) {
-            console.log(error)
+            toast.error(error?.response?.data?.message)
         }
     }
   return (

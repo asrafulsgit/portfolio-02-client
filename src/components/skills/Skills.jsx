@@ -56,7 +56,7 @@ const Skills = () => {
 ];
 
   return (
-    <section id="skills" className="pb-15 pt-20 bg-white">
+    <section id="skills" className=" pt-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header />
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

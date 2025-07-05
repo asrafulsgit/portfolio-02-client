@@ -8,11 +8,9 @@ import Contact from './Contact';
 const Portfolio = () => {
   const { ref, inView, entry } = useInView({ triggerOnce: true });
 
-
-
   return (
 
-  <section id="portfolio" className="pb-15 pt-20 bg-gray-50">
+  <section id="portfolio" className="pt-20 bg-gray-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div ref={ref} className={`text-center mb-16  ${inView && 'animate-fade-in-up'}`}>

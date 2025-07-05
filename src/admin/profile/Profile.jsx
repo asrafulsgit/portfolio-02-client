@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { apiRequiestWithCredentials } from '../../utilities/ApiCall';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 // const avatars = [
 //   'https://avatar.iran.liara.run/public/42',
@@ -343,7 +344,7 @@ const Profile = () => {
       const data = await apiRequiestWithCredentials('get','/admin/profile/info')
       setForm(data?.profile)
     } catch (error) {
-      console.log(error)
+      toast.error(error?.response?.data?.message)
     }
   }
   useEffect(()=>{
@@ -365,16 +366,15 @@ const saveChanges = async() => {
       || !form.technologies.length
     )
     ) {
-      alert('Please complete required filed!')
+      toast.error('Please complete required filed!')
       return;
     }
-    console.log(form)
    
     try {
       const data = await apiRequiestWithCredentials('put','/admin/profile/update',form)
       setShowSuccessModal(true);
     } catch (error) {
-      console.log(error)
+      toast.error(error?.response?.data?.message)
     }
     
   };

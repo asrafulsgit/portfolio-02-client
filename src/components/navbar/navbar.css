@@ -1,6 +1,9 @@
 .navbar-section .active{
     color: #155dfc;
 }
+.mobile ul li .active{
+  color: #155dfc;
+}
 
 @keyframes slideDown {
   from {
