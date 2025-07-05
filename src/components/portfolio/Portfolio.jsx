@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './portfolio.css'
 import Modal from './Modal';
 import { useInView } from "react-intersection-observer";
-import Projects from './projects';
+import Projects from './Projects';
 import Contact from './Contact';
 
 const Portfolio = () => {
